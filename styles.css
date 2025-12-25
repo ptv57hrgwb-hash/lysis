@@ -699,3 +699,5 @@ section#contact{
   border-top: 1px solid rgba(17,17,17,.16) !important;
   border-bottom: 1px solid rgba(17,17,17,.16) !important;
 }
+/* TEST: si tu vois du rouge ici, le CSS est bien chargé */
+section#prestations{ background: red !important; }
