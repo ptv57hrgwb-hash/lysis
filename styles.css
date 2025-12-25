@@ -1,59 +1,58 @@
 /* =========================================================
-   LYSIS — styles.css (V1 propre + sections bien séparées)
-   Objectif : 5 panneaux visuels distincts + lisibilité premium
+   LYSIS — styles.css (Clean / sans cadres / mobile safe)
    ========================================================= */
-html, body{
-  width: 100%;
-  overflow-x: hidden;
-}
 
 :root{
-  /* Base "papier + encre" */
   --paper: #FBF7F3;
   --ink:   #232B27;
-  --line:  rgba(17,17,17,.20);
+  --line:  rgba(17,17,17,.16);
 
-  --card:  rgba(255,255,255,.74);
+  --card:  rgba(255,255,255,.82);
   --muted: rgba(35,43,39,.78);
 
-  /* Accents (onde du logo) */
-  --gold: #D8B56A;
-  --teal: #2A92A3;
-  --vio:  #7C5CFF;
-  --pink: #DF566B;
+  /* accents très discrets (pas bonbon) */
+  --gold: rgba(216,181,106,.10);
+  --teal: rgba(42,146,163,.10);
+  --vio:  rgba(124,92,255,.10);
+  --pink: rgba(223,86,107,.10);
 
   --container: 1140px;
-  --r-xl: 42px;
-  --r-lg: 26px;
-  --r-md: 18px;
+  --r-lg: 22px;
+  --r-md: 16px;
 
-  --shadow-soft: 0 12px 34px rgba(0,0,0,.06);
+  --shadow: 0 10px 28px rgba(0,0,0,.06);
 }
 
 /* ---------- Base ---------- */
-*{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+*{ box-sizing: border-box; }
+html, body{
+  width: 100%;
+  overflow-x: hidden; /* IMPORTANT iOS */
+}
+html{ scroll-behavior: smooth; }
+
 body{
-  margin:0;
+  margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
 }
-a{ color:inherit; text-decoration:none; }
-img{ max-width:100%; display:block; }
+
+a{ color: inherit; text-decoration: none; }
+img{ max-width: 100%; display:block; }
 
 .container{
-  width: min(var(--container), calc(100% - 48px));
-  margin-inline:auto;
+  width: min(var(--container), calc(100% - 40px));
+  margin-inline: auto;
 }
 
-.muted{ color: rgba(35,43,39,.82); }
+/* Utils */
+.muted{ color: rgba(35,43,39,.80); }
 .small{ font-size: 13px; }
-
 .text-gradient{
-  background: linear-gradient(90deg, var(--gold), var(--teal), var(--vio), var(--pink));
+  background: linear-gradient(90deg, #D8B56A, #2A92A3, #7C5CFF, #DF566B);
   -webkit-background-clip:text;
   background-clip:text;
   color: transparent;
@@ -64,51 +63,30 @@ img{ max-width:100%; display:block; }
   position:absolute;
   left:-999px; top: 12px;
   background:#fff;
-  border:2px solid rgba(17,17,17,.6);
-  padding:10px 12px;
-  border-radius: 14px;
+  border: 2px solid rgba(17,17,17,.45);
+  padding: 10px 12px;
+  border-radius: 12px;
   z-index: 9999;
 }
-.skip:focus{ left:16px; }
+.skip:focus{ left: 16px; }
 
-/* ---------- Cadre global (logo style) ---------- */
-.page-frame{
-  position: fixed;
-  inset: 22px;
-  border-radius: var(--r-xl);
-  pointer-events:none;
-  z-index: 5; /* important : derrière le contenu */
-}
-.page-frame::before,
-.page-frame::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius: var(--r-xl);
-}
-.page-frame::before{
-  border: 3px solid rgba(17,17,17,.62);
-}
-.page-frame::after{
-  inset: 14px;
-  border: 2px solid rgba(17,17,17,.44);
-  border-radius: var(--r-xl);
-}
-
-/* ---------- Header ---------- */
+/* =========================================================
+   Header (sans cadres)
+   ========================================================= */
 .header{
   position: sticky;
-  top:0;
-  z-index: 60;
+  top: 0;
+  z-index: 50;
   background: rgba(251,247,243,.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
+
 .header__inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 16px;
+  gap: 14px;
   padding: 14px 0;
 }
 
@@ -116,38 +94,39 @@ img{ max-width:100%; display:block; }
 .brand{
   display:flex;
   align-items:center;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
 }
 .brand__mark{
-  width: 42px; height: 42px;
+  width: 40px; height: 40px;
   display:grid; place-items:center;
-  border-radius: 16px;
-  border: 2px solid rgba(17,17,17,.70);
-  background: rgba(255,255,255,.76);
+  border-radius: 14px;
+  border: 1px solid rgba(17,17,17,.28);
+  background: rgba(255,255,255,.85);
   font-weight: 900;
-  letter-spacing: .5px;
+  letter-spacing: .06em;
 }
 .brand__text{ display:flex; flex-direction:column; line-height:1.05; }
 .brand__name{
   font-weight: 900;
-  letter-spacing: .42em;
+  letter-spacing: .34em;
   font-size: 14px;
 }
 .brand__sub{
   font-size: 12px;
-  font-weight: 800;
-  color: rgba(35,43,39,.60);
-  letter-spacing: .12em;
+  font-weight: 750;
+  color: rgba(35,43,39,.58);
+  letter-spacing: .10em;
 }
 
-/* Nav */
+/* Nav desktop */
 .nav{
   display:flex;
   gap: 8px;
-  padding: 8px 10px;
+  padding: 6px 8px;
   border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.66);
+  border: 1px solid rgba(17,17,17,.14);
+  background: rgba(255,255,255,.65);
 }
 .nav a{
   font-size: 14px;
@@ -158,165 +137,173 @@ img{ max-width:100%; display:block; }
 
 .header__actions{
   display:flex;
-  gap: 10px;
   align-items:center;
+  gap: 10px;
 }
 
-/* =========================================================
-   Boutons — style neutre premium (sans arc-en-ciel)
-   ========================================================= */
-
+/* Buttons (neutres, pas noirs) */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: 12px 18px;
+  padding: 12px 16px;
   border-radius: 999px;
-  border: 1.5px solid rgba(17,17,17,.28);
-  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(17,17,17,.20);
+  background: rgba(255,255,255,.80);
   color: var(--ink);
   font-weight: 800;
-  transition: 
-    background .15s ease,
-    border-color .15s ease,
-    box-shadow .15s ease,
-    transform .12s ease;
+  transition: transform .12s ease, background .15s ease, box-shadow .15s ease;
 }
-
 .btn:hover{
   transform: translateY(-1px);
-  background: rgba(255,255,255,.88);
-  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
 }
 
-/* Bouton principal — graphite doux */
-.btn--primary{
-  background: rgba(35,43,39,.82); /* graphite */
-  color: #F6F3EE;                 /* ivoire */
-  border-color: rgba(35,43,39,.55);
-}
-
-.btn--primary:hover{
-  background: rgba(35,43,39,.70);
-  box-shadow: 0 8px 22px rgba(0,0,0,.10);
-}
-
-/* Bouton secondaire */
 .btn--outline{
-  background: rgba(255,255,255,.66);
-  color: var(--ink);
+  background: rgba(255,255,255,.65);
+}
+
+.btn--primary{
+  background: rgba(35,43,39,.68);  /* graphite doux */
+  color: rgba(246,243,238,1);      /* ivoire */
+  border-color: rgba(35,43,39,.30);
+}
+.btn--primary:hover{
+  background: rgba(35,43,39,.58);
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
 }
 
 /* Burger */
 .burger{
   display:none;
   width: 44px; height: 44px;
-  border-radius: 16px;
-  border: 2px solid rgba(17,17,17,.70);
-  background: rgba(255,255,255,.62);
+  border-radius: 14px;
+  border: 1px solid rgba(17,17,17,.20);
+  background: rgba(255,255,255,.70);
 }
 .burger span{
   display:block;
   width: 18px;
   height: 2px;
-  background: rgba(17,17,17,.75);
+  background: rgba(17,17,17,.62);
   margin: 5px auto;
   border-radius: 999px;
 }
 
 /* Drawer mobile */
-.drawer{ position: fixed; inset:0; z-index: 90; }
+.drawer{ position: fixed; inset:0; z-index: 80; }
 .drawer__backdrop{
   position:absolute; inset:0;
-  background: rgba(0,0,0,.45);
+  background: rgba(0,0,0,.38);
   backdrop-filter: blur(6px);
 }
 .drawer__panel{
   position:absolute;
-  right: 18px; top: 18px;
-  width: min(380px, calc(100% - 36px));
-  border-radius: var(--r-lg);
-  background: rgba(251,247,243,.96);
-  border: 2px solid rgba(17,17,17,.55);
-  padding: 14px;
-  box-shadow: var(--shadow-soft);
+  right: 12px; top: 12px;
+  width: min(380px, calc(100% - 24px));
+  border-radius: 18px;
+  background: rgba(251,247,243,.98);
+  border: 1px solid rgba(17,17,17,.18);
+  padding: 12px;
+  box-shadow: var(--shadow);
 }
 .drawer__top{
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding: 6px 6px 10px 6px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(17,17,17,.12);
   margin-bottom: 10px;
 }
 .drawer__title{ font-weight: 900; letter-spacing:.08em; }
 .drawer__close{
-  width: 42px; height: 42px;
-  border-radius: 16px;
-  border: 2px solid rgba(17,17,17,.55);
-  background: rgba(255,255,255,.82);
+  width: 40px; height: 40px;
+  border-radius: 14px;
+  border: 1px solid rgba(17,17,17,.18);
+  background: rgba(255,255,255,.85);
 }
 .drawer a{
   display:block;
-  padding: 12px 12px;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.76);
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(17,17,17,.12);
+  background: rgba(255,255,255,.82);
   margin: 8px 0;
 }
-.drawer a:hover{ background: rgba(255,255,255,.92); }
 .drawer__actions{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 10px; }
 
 /* =========================================================
-   PANNEAUX (fonds différents par section)
-   - Très important : on ne se base plus sur section--alt
-   - Chaque section a un fond dédié + bordure séparatrice
+   Sections : 5 panneaux sobres (pas de cadres)
    ========================================================= */
 
 .hero{
+  padding: 64px 0 38px 0;
   background:
-    radial-gradient(circle at 18% 25%, rgba(216,181,106,.10), transparent 55%),
-    radial-gradient(circle at 78% 18%, rgba(42,146,163,.09), transparent 55%),
-    rgba(255,255,255,.18);
-  border-bottom: 1px solid rgba(17,17,17,.16);
-  padding: 64px 0 30px 0;
+    radial-gradient(circle at 18% 24%, var(--gold), transparent 60%),
+    radial-gradient(circle at 78% 18%, var(--teal), transparent 62%),
+    #ECE6DD;
+  border-bottom: 1px solid rgba(17,17,17,.12);
 }
 
+.section{
+  padding: 92px 0;
+}
+
+/* Offres */
 #activites{
   background:
-    radial-gradient(circle at 22% 18%, rgba(216,181,106,.14), transparent 58%),
-    radial-gradient(circle at 82% 55%, rgba(124,92,255,.11), transparent 62%),
-    rgba(255,255,255,.42);
-  border-top: 1px solid rgba(17,17,17,.16);
-  border-bottom: 1px solid rgba(17,17,17,.16);
+    radial-gradient(circle at 22% 18%, rgba(0,0,0,.06), transparent 62%),
+    radial-gradient(circle at 82% 55%, var(--vio), transparent 66%),
+    #E6E1D9;
+  border-top: 1px solid rgba(17,17,17,.12);
+  border-bottom: 1px solid rgba(17,17,17,.12);
 }
 
+/* Prestations */
 #prestations{
   background:
-    radial-gradient(circle at 15% 70%, rgba(223,86,107,.08), transparent 62%),
-    rgba(255,255,255,.22);
-  border-bottom: 1px solid rgba(17,17,17,.16);
+    radial-gradient(circle at 18% 70%, rgba(0,0,0,.06), transparent 64%),
+    radial-gradient(circle at 78% 30%, var(--gold), transparent 62%),
+    #E7E0D6;
+  border-bottom: 1px solid rgba(17,17,17,.12);
 }
 
+/* Formations */
 #formations{
   background:
-    radial-gradient(circle at 78% 22%, rgba(124,92,255,.12), transparent 60%),
-    radial-gradient(circle at 20% 65%, rgba(42,146,163,.10), transparent 62%),
-    rgba(255,255,255,.36);
-  border-top: 1px solid rgba(17,17,17,.16);
-  border-bottom: 1px solid rgba(17,17,17,.16);
+    radial-gradient(circle at 78% 22%, var(--teal), transparent 64%),
+    radial-gradient(circle at 22% 70%, var(--vio), transparent 66%),
+    #DEE4E6;
+  border-top: 1px solid rgba(17,17,17,.12);
+  border-bottom: 1px solid rgba(17,17,17,.12);
 }
 
+/* Contact */
 #contact{
   background:
-    radial-gradient(circle at 25% 20%, rgba(216,181,106,.11), transparent 58%),
-    radial-gradient(circle at 85% 72%, rgba(223,86,107,.09), transparent 62%),
-    rgba(255,255,255,.26);
-  border-top: 1px solid rgba(17,17,17,.16);
+    radial-gradient(circle at 25% 20%, rgba(0,0,0,.06), transparent 64%),
+    radial-gradient(circle at 85% 75%, var(--pink), transparent 66%),
+    #E9E3DB;
+  border-top: 1px solid rgba(17,17,17,.12);
 }
 
-/* Sections (espacement) */
-.section{ padding: 86px 0; }
+/* =========================================================
+   Typo / Headings
+   ========================================================= */
+.kicker{
+  display:inline-block;
+  margin:0 0 14px 0;
+  font-weight: 900;
+  letter-spacing: .18em;
+  font-size: 12px;
+}
+h1{
+  margin: 0 0 10px 0;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.04;
+  letter-spacing: -0.6px;
+}
 .section__head{ margin-bottom: 18px; }
 .section__head h2{
   margin:0 0 6px 0;
@@ -331,45 +318,13 @@ img{ max-width:100%; display:block; }
   max-width: 78ch;
 }
 
-/* =========================================================
-   Hero contenu
-   ========================================================= */
-.hero__inner{
-  display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: 26px;
-  align-items:center;
-  min-height: 560px;
-}
-.kicker{
-  display:inline-block;
-  margin:0 0 14px 0;
-  font-weight: 900;
-  letter-spacing: .18em;
-  font-size: 12px;
-}
-h1{
-  margin: 0 0 10px 0;
-  font-size: clamp(34px, 4.2vw, 54px);
-  line-height: 1.03;
-  letter-spacing: -0.6px;
-}
+/* Manifeste */
 .manifeste{
   margin: 8px 0 0 0;
   font-weight: 850;
   font-size: 16px;
   color: rgba(35,43,39,.78);
-  max-width: 70ch;
-}
-.manifeste::after{
-  content:"";
-  display:block;
-  width: 220px;
-  height: 3px;
-  margin-top: 10px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--gold), var(--teal), var(--vio), var(--pink));
-  opacity: .45;
+  max-width: 72ch;
 }
 .manifeste--small{
   margin-top: 10px;
@@ -377,6 +332,7 @@ h1{
   font-size: 14px;
 }
 
+/* Lead */
 .lead{
   margin: 14px 0 0 0;
   color: rgba(35,43,39,.84);
@@ -385,23 +341,36 @@ h1{
   max-width: 72ch;
 }
 
+/* =========================================================
+   Hero layout
+   ========================================================= */
+.hero__inner{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 24px;
+  align-items:center;
+  min-height: 520px;
+}
+
 .hero__actions{
   display:flex;
   gap: 12px;
   flex-wrap:wrap;
   margin-top: 18px;
 }
+
 .hero__mini{
   margin-top: 16px;
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
+
 .mini{
-  border: 1px solid rgba(17,17,17,.14);
+  border: 1px solid rgba(17,17,17,.12);
   border-radius: var(--r-md);
   padding: 12px;
-  background: rgba(255,255,255,.74);
+  background: rgba(255,255,255,.82);
 }
 .mini b{
   display:block;
@@ -414,49 +383,28 @@ h1{
   font-size: 13px;
 }
 
-/* Logo card (grille + cadre) */
+/* Visual (logo) */
 .logo-card{
-  position:relative;
-  border-radius: 34px;
-  border: 2px solid rgba(17,17,17,.70);
-  background: rgba(255,255,255,.68);
-  padding: 18px;
-  overflow:hidden;
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--r-lg);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(17,17,17,.14);
+  padding: 16px;
+  box-shadow: var(--shadow);
 }
-.logo-card::after{
-  content:"";
-  position:absolute;
-  inset: 12px;
-  border-radius: 28px;
-  border: 2px solid rgba(17,17,17,.52);
-  pointer-events:none;
-}
-.logo-card__grid{
-  position:absolute;
-  inset: 0;
-  opacity: .16;
-  background-image:
-    linear-gradient(to right, rgba(17,17,17,.18) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(17,17,17,.18) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(circle at 45% 35%, black 0 55%, transparent 78%);
-}
-.logo-card__img{ position:relative; width:100%; }
 
 /* =========================================================
-   Grids / cards
+   Cards / grids
    ========================================================= */
 .grid{ display:grid; gap: 14px; }
 .grid--3{ grid-template-columns: repeat(3, 1fr); }
 .grid--2{ grid-template-columns: repeat(2, 1fr); }
 
 .card{
-  border-radius: 22px;
-  border: 1px solid rgba(17,17,17,.16);
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(17,17,17,.12);
   background: var(--card);
   padding: 18px;
-  box-shadow: 0 6px 16px rgba(0,0,0,.04);
+  box-shadow: var(--shadow);
 }
 .card h3{ margin:0 0 10px 0; font-size: 18px; }
 .card p{ margin:0; color: rgba(35,43,39,.84); line-height: 1.7; }
@@ -473,18 +421,11 @@ h1{
   margin-bottom: 10px;
   padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(17,17,17,.16);
-  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(17,17,17,.12);
+  background: rgba(255,255,255,.90);
   font-weight: 900;
   font-size: 12px;
   letter-spacing: .08em;
-}
-
-.card--accent{
-  background:
-    radial-gradient(circle at 22% 18%, rgba(216,181,106,.20), transparent 55%),
-    radial-gradient(circle at 78% 58%, rgba(124,92,255,.14), transparent 60%),
-    rgba(255,255,255,.76);
 }
 
 /* Split cards (Offres) */
@@ -495,16 +436,10 @@ h1{
 }
 .bigCard{
   border-radius: var(--r-lg);
-  border: 2px solid rgba(17,17,17,.52);
-  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(17,17,17,.14);
+  background: rgba(255,255,255,.82);
   padding: 18px;
-  box-shadow: var(--shadow-soft);
-}
-.bigCard--accent{
-  background:
-    radial-gradient(circle at 22% 18%, rgba(216,181,106,.18), transparent 55%),
-    radial-gradient(circle at 78% 58%, rgba(124,92,255,.12), transparent 60%),
-    rgba(255,255,255,.78);
+  box-shadow: var(--shadow);
 }
 .bigCard__top{
   display:flex;
@@ -517,8 +452,8 @@ h1{
   display:inline-flex;
   padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(17,17,17,.16);
-  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(17,17,17,.12);
+  background: rgba(255,255,255,.90);
   font-weight: 900;
   font-size: 12px;
   letter-spacing: .08em;
@@ -527,7 +462,7 @@ h1{
   font-size: 12px;
   font-weight: 900;
   letter-spacing: .10em;
-  color: rgba(35,43,39,.62);
+  color: rgba(35,43,39,.58);
   text-transform: uppercase;
 }
 .bigCard h3{ margin: 0 0 8px 0; font-size: 22px; }
@@ -545,7 +480,7 @@ h1{
 .fineLine{
   margin: 0;
   padding-top: 10px;
-  border-top: 1px solid rgba(17,17,17,.14);
+  border-top: 1px solid rgba(17,17,17,.12);
   font-size: 13px;
   color: rgba(35,43,39,.74);
   font-weight: 800;
@@ -556,24 +491,22 @@ h1{
   margin-top: 16px;
   padding: 18px;
   border-radius: var(--r-lg);
-  border: 1px solid rgba(17,17,17,.16);
-  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(17,17,17,.12);
+  background: rgba(255,255,255,.84);
+  box-shadow: var(--shadow);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap: 12px;
 }
 
-/* Formations helpers */
+/* Formations blocks */
 .dlRow{
   margin-top: 12px;
   display:flex;
   gap: 12px;
   flex-wrap:wrap;
 }
-.cadre{ margin-top: 14px; }
-.modalites{ margin-top: 14px; }
-
 .modalGrid{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
@@ -581,22 +514,13 @@ h1{
   margin-top: 10px;
 }
 .modalItem{
-  border: 1px solid rgba(17,17,17,.14);
+  border: 1px solid rgba(17,17,17,.12);
   border-radius: var(--r-md);
   padding: 12px;
-  background: rgba(255,255,255,.74);
+  background: rgba(255,255,255,.86);
 }
-.modalItem b{
-  display:block;
-  margin-bottom: 6px;
-  letter-spacing: .02em;
-  font-weight: 900;
-}
-.modalItem span{
-  color: rgba(35,43,39,.80);
-  line-height: 1.55;
-  font-size: 13px;
-}
+.modalItem b{ display:block; margin-bottom: 6px; font-weight: 900; }
+.modalItem span{ color: rgba(35,43,39,.80); font-size: 13px; line-height: 1.55; }
 
 /* Contact form */
 .form label{
@@ -611,22 +535,22 @@ h1{
   font-weight: 900;
 }
 input, textarea, select{
-  border-radius: 16px;
-  border: 1px solid rgba(17,17,17,.14);
-  background: rgba(255,255,255,.86);
+  border-radius: 14px;
+  border: 1px solid rgba(17,17,17,.12);
+  background: rgba(255,255,255,.92);
   padding: 12px;
   color: var(--ink);
   outline:none;
 }
 input:focus, textarea:focus, select:focus{
-  box-shadow: 0 0 0 4px rgba(42,146,163,.18);
+  box-shadow: 0 0 0 4px rgba(42,146,163,.14);
 }
 .line{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(17,17,17,.14);
+  border-bottom: 1px solid rgba(17,17,17,.12);
 }
 
 /* Footer */
@@ -637,348 +561,38 @@ input:focus, textarea:focus, select:focus{
   align-items:center;
   gap: 12px;
   flex-wrap:wrap;
-  border-top: 1px solid rgba(17,17,17,.14);
+  border-top: 1px solid rgba(17,17,17,.12);
   padding-top: 18px;
 }
-.footer__left{ display:flex; gap: 12px; flex-wrap:wrap; }
-.footer__right{ display:flex; gap: 12px; flex-wrap:wrap; }
 .footer__right a{
-  color: rgba(35,43,39,.72);
+  color: rgba(35,43,39,.70);
   font-weight: 800;
 }
 .footer__right a:hover{ text-decoration: underline; }
 
-/* Responsive */
+/* =========================================================
+   Responsive
+   ========================================================= */
 @media (max-width: 980px){
-  .page-frame{ inset: 14px; }
   .nav{ display:none; }
   .burger{ display:inline-block; }
 
-  .hero__inner{ grid-template-columns: 1fr; }
+  .hero__inner{ grid-template-columns: 1fr; min-height: auto; }
   .grid--3{ grid-template-columns: 1fr; }
   .grid--2{ grid-template-columns: 1fr; }
   .splitCards{ grid-template-columns: 1fr; }
   .modalGrid{ grid-template-columns: 1fr; }
   .callout{ flex-direction:column; align-items:flex-start; }
-  .brand__name{ letter-spacing: .28em; }
+
+  .hero__mini{ grid-template-columns: 1fr; }
+  .container{ width: min(var(--container), calc(100% - 28px)); }
+  .section{ padding: 68px 0; }
+  .hero{ padding: 54px 0 26px 0; }
+
+  h1{ font-size: 34px; }
+  .section__head h2{ font-size: 26px; }
 }
 
 @media (prefers-reduced-motion: reduce){
   *{ scroll-behavior:auto !important; transition:none !important; }
 }
-/* =========================================================
-   PANNEAUX : forcer 1 fond distinct par grande section
-   (corrige les overrides / anciens styles)
-   ========================================================= */
-
-/* 0) On neutralise les fonds génériques qui peuvent écraser */
-.section--alt{ background: transparent !important; }
-
-/* 1) HERO (Une signature sonore...) */
-section.hero{
-  background: linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,0)) , var(--paper) !important;
-}
-
-/* 2) OFFRES (Deux activités...) */
-section#activites{
-  background:
-    radial-gradient(circle at 20% 20%, rgba(216,181,106,.22), transparent 60%),
-    radial-gradient(circle at 80% 60%, rgba(124,92,255,.18), transparent 62%),
-    rgba(255,255,255,.55) !important;
-}
-
-/* 3) PRESTATIONS */
-section#prestations{
-  background:
-    radial-gradient(circle at 18% 70%, rgba(223,86,107,.16), transparent 62%),
-    rgba(255,255,255,.38) !important;
-}
-
-/* 4) FORMATIONS */
-section#formations{
-  background:
-    radial-gradient(circle at 78% 20%, rgba(124,92,255,.22), transparent 60%),
-    radial-gradient(circle at 20% 70%, rgba(42,146,163,.16), transparent 62%),
-    rgba(255,255,255,.52) !important;
-}
-
-/* 5) CONTACT */
-section#contact{
-  background:
-    radial-gradient(circle at 25% 20%, rgba(216,181,106,.18), transparent 60%),
-    radial-gradient(circle at 85% 75%, rgba(223,86,107,.14), transparent 62%),
-    rgba(255,255,255,.40) !important;
-}
-
-/* Séparateurs plus visibles entre panneaux */
-section.hero,
-section#activites,
-section#prestations,
-section#formations,
-section#contact{
-  border-top: 1px solid rgba(17,17,17,.16) !important;
-  border-bottom: 1px solid rgba(17,17,17,.16) !important;
-}
-/* =========================================================
-   PANNEAUX — Palette plus sombre (studio / ardoise / pierre)
-   ========================================================= */
-
-.section--alt{ background: transparent !important; }
-
-section.hero,
-section#activites,
-section#prestations,
-section#formations,
-section#contact{
-  border-top: 1px solid rgba(17,17,17,.18) !important;
-  border-bottom: 1px solid rgba(17,17,17,.18) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.40),
-    inset 0 -1px 0 rgba(0,0,0,.06);
-}
-
-/* 1) HERO — graphite chaud + teal très discret */
-section.hero{
-  background:
-    radial-gradient(circle at 78% 16%, rgba(0,0,0,.08), transparent 58%),
-    radial-gradient(circle at 20% 24%, rgba(42,146,163,.10), transparent 62%),
-    #E3DCD2 !important;
-}
-
-/* 2) OFFRES — pierre/ardoise claire */
-section#activites{
-  background:
-    radial-gradient(circle at 25% 20%, rgba(0,0,0,.09), transparent 62%),
-    radial-gradient(circle at 80% 55%, rgba(0,0,0,.06), transparent 64%),
-    #DDD7CF !important;
-}
-
-/* 3) PRESTATIONS — sable/bronze ultra léger (service) */
-section#prestations{
-  background:
-    radial-gradient(circle at 18% 70%, rgba(0,0,0,.08), transparent 64%),
-    radial-gradient(circle at 78% 30%, rgba(216,181,106,.10), transparent 62%),
-    #DED6CB !important;
-}
-
-/* 4) FORMATIONS — ardoise froide (méthode) */
-section#formations{
-  background:
-    radial-gradient(circle at 78% 22%, rgba(42,146,163,.10), transparent 62%),
-    radial-gradient(circle at 22% 70%, rgba(124,92,255,.10), transparent 64%),
-    #D4DADD !important;
-}
-
-/* 5) CONTACT — neutre sombre doux */
-section#contact{
-  background:
-    radial-gradient(circle at 25% 20%, rgba(0,0,0,.09), transparent 62%),
-    radial-gradient(circle at 85% 75%, rgba(0,0,0,.06), transparent 64%),
-    #DFD8CF !important;
-}
-
-
-/* 4) FORMATIONS */
-section#formations{
-  background:
-    radial-gradient(circle at 78% 22%, rgba(124,92,255,.22), transparent 62%),
-    radial-gradient(circle at 20% 70%, rgba(42,146,163,.18), transparent 64%),
-    rgba(255,255,255,.42) !important;
-  border-top: 1px solid rgba(17,17,17,.18) !important;
-  border-bottom: 1px solid rgba(17,17,17,.18) !important;
-}
-
-/* 5) CONTACT */
-section#contact{
-  background:
-    radial-gradient(circle at 25% 20%, rgba(216,181,106,.18), transparent 62%),
-    radial-gradient(circle at 85% 75%, rgba(223,86,107,.16), transparent 64%),
-    rgba(255,255,255,.30) !important;
-  border-top: 1px solid rgba(17,17,17,.18) !important;
-}
-/* =========================================================
-   PANNEAUX ++ : chaque section devient une "plaque" (container)
-   ========================================================= */
-
-/* 1) on donne de l’air entre les blocs */
-.hero{ padding-bottom: 46px !important; }
-.section{ padding: 96px 0 !important; }
-
-/* 2) la plaque (le container) */
-.hero > .container,
-section#activites > .container,
-section#prestations > .container,
-section#formations > .container,
-section#contact > .container{
-  position: relative;
-  background: rgba(255,255,255,.70);
-  border: 1px solid rgba(17,17,17,.18);
-  border-radius: 32px;
-  padding: 34px;
-  box-shadow:
-    0 18px 44px rgba(0,0,0,.08),
-    inset 0 1px 0 rgba(255,255,255,.65);
-}
-
-/* 3) un liseré interne (style logo) */
-.hero > .container::after,
-section#activites > .container::after,
-section#prestations > .container::after,
-section#formations > .container::after,
-section#contact > .container::after{
-  content:"";
-  position:absolute;
-  inset: 14px;
-  border-radius: 26px;
-  border: 1px solid rgba(17,17,17,.14);
-  pointer-events:none;
-}
-
-/* 4) sur mobile : padding plus petit */
-@media (max-width: 980px){
-  .hero > .container,
-  section#activites > .container,
-  section#prestations > .container,
-  section#formations > .container,
-  section#contact > .container{
-    padding: 20px;
-    border-radius: 24px;
-  }
-  .hero > .container::after,
-  section#activites > .container::after,
-  section#prestations > .container::after,
-  section#formations > .container::after,
-  section#contact > .container::after{
-    inset: 10px;
-    border-radius: 18px;
-  }
-/* =========================================================
-   OPTIMISATION MOBILE (iPhone)
-   ========================================================= */
-
-@media (max-width: 768px){
-
-  /* Sections : moins lourdes visuellement */
-  section.hero,
-  section#activites,
-  section#prestations,
-  section#formations,
-  section#contact{
-    background: rgba(255,255,255,.85) !important;
-    border-top: 1px solid rgba(17,17,17,.12) !important;
-    border-bottom: 1px solid rgba(17,17,17,.12) !important;
-  }
-
-  /* Containers = cartes plus légères */
-  section.hero > .container,
-  section#activites > .container,
-  section#prestations > .container,
-  section#formations > .container,
-  section#contact > .container{
-    background: rgba(255,255,255,.92);
-    border-radius: 20px;
-    padding: 18px;
-    box-shadow: 0 8px 22px rgba(0,0,0,.06);
-  }
-
-  /* Titres plus compacts */
-  h1{
-    font-size: 32px;
-    line-height: 1.1;
-  }
-  h2{
-    font-size: 24px;
-  }
-
-  /* Boutons : plus clairs et plus respirants */
-  .btn{
-    padding: 12px 16px;
-    font-size: 14px;
-  }
-
-  .btn--primary{
-    background: rgba(35,43,39,.68);
-    border-color: rgba(35,43,39,.45);
-  }
-
-  /* Mini cartes du hero */
-  .hero__mini{
-    grid-template-columns: 1fr;
-  }
-
-  /* Cards empilées */
-  .card,
-  .bigCard{
-    border-radius: 18px;
-  }
-/* =========================================================
-   FIX iOS — débordements & cadres
-   ========================================================= */
-
-@media (max-width: 768px){
-
-  /* Supprime les cadres décoratifs internes */
-  section.hero > .container::after,
-  section#activites > .container::after,
-  section#prestations > .container::after,
-  section#formations > .container::after,
-  section#contact > .container::after{
-    display: none !important;
-  }
-
-  /* Bordures plus simples */
-  section.hero > .container,
-  section#activites > .container,
-  section#prestations > .container,
-  section#formations > .container,
-  section#contact > .container{
-    border-radius: 16px;
-    border-width: 1px;
-    margin-left: 12px;
-    margin-right: 12px;
-  }
-/* Sécurité mobile */
-.container{
-  max-width: 100%;
-  box-sizing: border-box;
-}
-/* =========================================================
-   SUPPRESSION TOTALE DES CADRES (desktop + mobile)
-   ========================================================= */
-
-/* Enlève toutes les bordures décoratives */
-*{
-  box-shadow: none !important;
-}
-
-/* Sections : plus de cadres */
-section{
-  border: none !important;
-}
-
-/* Containers : plus de cadres ni liserés */
-.container{
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-/* Suppression définitive des pseudo-cadres */
-.container::before,
-.container::after{
-  display: none !important;
-  content: none !important;
-}
-
-/* Cartes (prestations / formations) */
-.card,
-.bigCard,
-.hero__card,
-.hero__visual,
-.logo-card{
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 18px; /* léger arrondi propre */
-}
-
-
-
