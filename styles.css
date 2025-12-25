@@ -848,5 +848,65 @@ section#contact > .container::after{
     inset: 10px;
     border-radius: 18px;
   }
+/* =========================================================
+   OPTIMISATION MOBILE (iPhone)
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  /* Sections : moins lourdes visuellement */
+  section.hero,
+  section#activites,
+  section#prestations,
+  section#formations,
+  section#contact{
+    background: rgba(255,255,255,.85) !important;
+    border-top: 1px solid rgba(17,17,17,.12) !important;
+    border-bottom: 1px solid rgba(17,17,17,.12) !important;
+  }
+
+  /* Containers = cartes plus légères */
+  section.hero > .container,
+  section#activites > .container,
+  section#prestations > .container,
+  section#formations > .container,
+  section#contact > .container{
+    background: rgba(255,255,255,.92);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.06);
+  }
+
+  /* Titres plus compacts */
+  h1{
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  h2{
+    font-size: 24px;
+  }
+
+  /* Boutons : plus clairs et plus respirants */
+  .btn{
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .btn--primary{
+    background: rgba(35,43,39,.68);
+    border-color: rgba(35,43,39,.45);
+  }
+
+  /* Mini cartes du hero */
+  .hero__mini{
+    grid-template-columns: 1fr;
+  }
+
+  /* Cards empilées */
+  .card,
+  .bigCard{
+    border-radius: 18px;
+  }
+}
 
 
