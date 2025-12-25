@@ -911,6 +911,32 @@ section#contact > .container::after{
   .bigCard{
     border-radius: 18px;
   }
-}
+/* =========================================================
+   FIX iOS — débordements & cadres
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  /* Supprime les cadres décoratifs internes */
+  section.hero > .container::after,
+  section#activites > .container::after,
+  section#prestations > .container::after,
+  section#formations > .container::after,
+  section#contact > .container::after{
+    display: none !important;
+  }
+
+  /* Bordures plus simples */
+  section.hero > .container,
+  section#activites > .container,
+  section#prestations > .container,
+  section#formations > .container,
+  section#contact > .container{
+    border-radius: 16px;
+    border-width: 1px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
 
 
