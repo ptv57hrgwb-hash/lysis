@@ -937,6 +937,11 @@ section#contact > .container::after{
     margin-left: 12px;
     margin-right: 12px;
   }
+/* Sécurité mobile */
+.container{
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
 
 
