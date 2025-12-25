@@ -297,7 +297,8 @@ h1{
   background: rgba(255,255,255,.66);
 }
 .mini b{ display:block; margin-bottom: 6px; font-weight: 900; font-size: 14px; }
-.mini span{ color: rgba(35,43,39,.72); font-size: 13px; }
+.mini span{ font-size: 13px; color: rgba(35,43,39,.76); }
+
 
 /* Logo card (grid + frame) */
 .logo-card{
