@@ -73,6 +73,8 @@ img{ max-width:100%; display:block; }
   inset: 0;
   border-radius: 42px;
   border: 3px solid rgba(17,17,17,.78);
+  .page-frame::before{ border-color: rgba(17,17,17,.65); }
+.page-frame::after{ border-color: rgba(17,17,17,.45); }
 }
 .page-frame::after{
   inset: 14px;
