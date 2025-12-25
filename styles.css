@@ -250,9 +250,18 @@ h1{
 .manifeste{
   margin: 8px 0 0 0;
   font-weight: 850;
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(35,43,39,.78);
   max-width: 70ch;
+  .manifeste::after{
+  content:"";
+  display:block;
+  width: 220px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--teal), var(--vio), var(--pink));
+  opacity: .45;
 }
 .manifeste--small{
   margin-top: 10px;
