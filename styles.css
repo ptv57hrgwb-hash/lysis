@@ -699,5 +699,55 @@ section#contact{
   border-top: 1px solid rgba(17,17,17,.16) !important;
   border-bottom: 1px solid rgba(17,17,17,.16) !important;
 }
-/* TEST: si tu vois du rouge ici, le CSS est bien chargé */
-section#prestations{ background: red !important; }
+/* =========================================================
+   PANNEAUX VISIBLES : 5 sections = 5 fonds différents
+   ========================================================= */
+
+/* Neutralise l'ancien style "alt" au cas où */
+.section--alt{ background: transparent !important; }
+
+/* 1) HERO — Une signature sonore... */
+section.hero{
+  background:
+    radial-gradient(circle at 18% 28%, rgba(216,181,106,.18), transparent 60%),
+    radial-gradient(circle at 78% 18%, rgba(42,146,163,.18), transparent 60%),
+    rgba(255,255,255,.18) !important;
+  border-bottom: 1px solid rgba(17,17,17,.18) !important;
+}
+
+/* 2) OFFRES — Deux activités... */
+section#activites{
+  background:
+    radial-gradient(circle at 22% 18%, rgba(216,181,106,.22), transparent 62%),
+    radial-gradient(circle at 82% 55%, rgba(124,92,255,.20), transparent 64%),
+    rgba(255,255,255,.46) !important;
+  border-top: 1px solid rgba(17,17,17,.18) !important;
+  border-bottom: 1px solid rgba(17,17,17,.18) !important;
+}
+
+/* 3) PRESTATIONS */
+section#prestations{
+  background:
+    radial-gradient(circle at 18% 70%, rgba(223,86,107,.18), transparent 64%),
+    rgba(255,255,255,.26) !important;
+  border-bottom: 1px solid rgba(17,17,17,.18) !important;
+}
+
+/* 4) FORMATIONS */
+section#formations{
+  background:
+    radial-gradient(circle at 78% 22%, rgba(124,92,255,.22), transparent 62%),
+    radial-gradient(circle at 20% 70%, rgba(42,146,163,.18), transparent 64%),
+    rgba(255,255,255,.42) !important;
+  border-top: 1px solid rgba(17,17,17,.18) !important;
+  border-bottom: 1px solid rgba(17,17,17,.18) !important;
+}
+
+/* 5) CONTACT */
+section#contact{
+  background:
+    radial-gradient(circle at 25% 20%, rgba(216,181,106,.18), transparent 62%),
+    radial-gradient(circle at 85% 75%, rgba(223,86,107,.16), transparent 64%),
+    rgba(255,255,255,.30) !important;
+  border-top: 1px solid rgba(17,17,17,.18) !important;
+}
