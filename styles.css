@@ -642,5 +642,7 @@ input:focus, textarea:focus, select:focus{
     radial-gradient(circle at 20% 15%, rgba(216,181,106,.10), transparent 55%),
     radial-gradient(circle at 80% 60%, rgba(124,92,255,.08), transparent 60%),
     rgba(255,255,255,.42);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65); }
 }
+.section{ padding: 78px 0; }
+.section--alt{ padding: 86px 0; }
