@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -107,13 +106,14 @@
         <div class="hero__visual" aria-hidden="true">
           <div class="logo-card">
             <div class="logo-card__grid"></div>
-            <img class="logo-card__img" src="assets/logo.png" alt="" />
+            <!-- Mets ton fichier réel : logo.webp ou logo.png -->
+            <img class="logo-card__img" src="assets/logo.webp" alt="" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- OFFRES (Séparation claire) -->
+    <!-- OFFRES (séparation claire) -->
     <section class="section section--alt" id="activites">
       <div class="container">
         <div class="section__head">
@@ -186,7 +186,7 @@
             Une offre de service : direction d’enregistrement (en studios partenaires), mixage dans notre espace dédié,
             réalisation et livrables.
           </p>
-          <p class="muted small">
+          <p class="muted small" style="margin-top:10px;">
             Association : rendre la création sonore accessible par la méthode, la transmission et la réalisation.
           </p>
         </div>
@@ -344,8 +344,13 @@
             </label>
 
             <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="ton@email.fr" autocomplete="email" />
+            </label>
+
+            <label>
               <span>Message</span>
-              <textarea name="message" rows="5" placeholder="Décris ton projet ou ton besoin…"></textarea>
+              <textarea name="message" rows="6" placeholder="Décris ton projet ou ton besoin…"></textarea>
             </label>
 
             <button class="btn btn--primary" type="submit">Envoyer (démo)</button>
