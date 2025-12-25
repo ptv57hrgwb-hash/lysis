@@ -185,16 +185,16 @@ img{ max-width:100%; display:block; }
   box-shadow: 0 6px 16px rgba(0,0,0,.06);
 }
 
-/* Bouton principal */
+/* Bouton principal — graphite doux */
 .btn--primary{
-  background: rgba(35,43,39,.92);
-  color: #fff;
-  border-color: rgba(35,43,39,.92);
+  background: rgba(35,43,39,.82); /* graphite */
+  color: #F6F3EE;                 /* ivoire */
+  border-color: rgba(35,43,39,.55);
 }
 
 .btn--primary:hover{
-  background: rgba(35,43,39,.80);
-  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+  background: rgba(35,43,39,.70);
+  box-shadow: 0 8px 22px rgba(0,0,0,.10);
 }
 
 /* Bouton secondaire */
