@@ -2,6 +2,10 @@
    LYSIS — styles.css (V1 propre + sections bien séparées)
    Objectif : 5 panneaux visuels distincts + lisibilité premium
    ========================================================= */
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
 
 :root{
   /* Base "papier + encre" */
