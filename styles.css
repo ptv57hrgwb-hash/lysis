@@ -646,3 +646,56 @@ input:focus, textarea:focus, select:focus{
 @media (prefers-reduced-motion: reduce){
   *{ scroll-behavior:auto !important; transition:none !important; }
 }
+/* =========================================================
+   PANNEAUX : forcer 1 fond distinct par grande section
+   (corrige les overrides / anciens styles)
+   ========================================================= */
+
+/* 0) On neutralise les fonds génériques qui peuvent écraser */
+.section--alt{ background: transparent !important; }
+
+/* 1) HERO (Une signature sonore...) */
+section.hero{
+  background: linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,0)) , var(--paper) !important;
+}
+
+/* 2) OFFRES (Deux activités...) */
+section#activites{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(216,181,106,.22), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(124,92,255,.18), transparent 62%),
+    rgba(255,255,255,.55) !important;
+}
+
+/* 3) PRESTATIONS */
+section#prestations{
+  background:
+    radial-gradient(circle at 18% 70%, rgba(223,86,107,.16), transparent 62%),
+    rgba(255,255,255,.38) !important;
+}
+
+/* 4) FORMATIONS */
+section#formations{
+  background:
+    radial-gradient(circle at 78% 20%, rgba(124,92,255,.22), transparent 60%),
+    radial-gradient(circle at 20% 70%, rgba(42,146,163,.16), transparent 62%),
+    rgba(255,255,255,.52) !important;
+}
+
+/* 5) CONTACT */
+section#contact{
+  background:
+    radial-gradient(circle at 25% 20%, rgba(216,181,106,.18), transparent 60%),
+    radial-gradient(circle at 85% 75%, rgba(223,86,107,.14), transparent 62%),
+    rgba(255,255,255,.40) !important;
+}
+
+/* Séparateurs plus visibles entre panneaux */
+section.hero,
+section#activites,
+section#prestations,
+section#formations,
+section#contact{
+  border-top: 1px solid rgba(17,17,17,.16) !important;
+  border-bottom: 1px solid rgba(17,17,17,.16) !important;
+}
