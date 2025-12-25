@@ -722,7 +722,7 @@ section.hero{
   background:
     radial-gradient(circle at 78% 16%, rgba(0,0,0,.08), transparent 58%),
     radial-gradient(circle at 20% 24%, rgba(42,146,163,.10), transparent 62%),
-    #ECE6DD !important;
+    #E3DCD2 !important;
 }
 
 /* 2) OFFRES — pierre/ardoise claire */
@@ -730,7 +730,7 @@ section#activites{
   background:
     radial-gradient(circle at 25% 20%, rgba(0,0,0,.09), transparent 62%),
     radial-gradient(circle at 80% 55%, rgba(0,0,0,.06), transparent 64%),
-    #E6E1D9 !important;
+    #DDD7CF !important;
 }
 
 /* 3) PRESTATIONS — sable/bronze ultra léger (service) */
@@ -738,7 +738,7 @@ section#prestations{
   background:
     radial-gradient(circle at 18% 70%, rgba(0,0,0,.08), transparent 64%),
     radial-gradient(circle at 78% 30%, rgba(216,181,106,.10), transparent 62%),
-    #E7E0D6 !important;
+    #DED6CB !important;
 }
 
 /* 4) FORMATIONS — ardoise froide (méthode) */
@@ -746,7 +746,7 @@ section#formations{
   background:
     radial-gradient(circle at 78% 22%, rgba(42,146,163,.10), transparent 62%),
     radial-gradient(circle at 22% 70%, rgba(124,92,255,.10), transparent 64%),
-    #DEE4E6 !important;
+    #D4DADD !important;
 }
 
 /* 5) CONTACT — neutre sombre doux */
@@ -754,7 +754,7 @@ section#contact{
   background:
     radial-gradient(circle at 25% 20%, rgba(0,0,0,.09), transparent 62%),
     radial-gradient(circle at 85% 75%, rgba(0,0,0,.06), transparent 64%),
-    #E9E3DB !important;
+    #DFD8CF !important;
 }
 
 
