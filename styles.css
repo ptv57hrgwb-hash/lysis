@@ -942,6 +942,43 @@ section#contact > .container::after{
   max-width: 100%;
   box-sizing: border-box;
 }
+/* =========================================================
+   SUPPRESSION TOTALE DES CADRES (desktop + mobile)
+   ========================================================= */
+
+/* Enlève toutes les bordures décoratives */
+*{
+  box-shadow: none !important;
+}
+
+/* Sections : plus de cadres */
+section{
+  border: none !important;
+}
+
+/* Containers : plus de cadres ni liserés */
+.container{
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Suppression définitive des pseudo-cadres */
+.container::before,
+.container::after{
+  display: none !important;
+  content: none !important;
+}
+
+/* Cartes (prestations / formations) */
+.card,
+.bigCard,
+.hero__card,
+.hero__visual,
+.logo-card{
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 18px; /* léger arrondi propre */
+}
 
 
 
